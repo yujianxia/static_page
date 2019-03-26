@@ -5,10 +5,10 @@
 				<div class='index_name'>路由后台管理系统</div>
 				<div class="index_leftOperation">
 					<span>当前账户:
-						<b class="name">{{userName}}</b>
+						<b class="name">1232</b>
 					</span>
-					<span @click="modifyPassword">修改密码</span>
-					<span @click="checkOut">退出</span>
+					<span >修改密码</span>
+					<span >退出</span>
 				</div>
 			</el-header>
 			<el-container>
