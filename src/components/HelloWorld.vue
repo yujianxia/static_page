@@ -306,6 +306,7 @@ export default {
   },
   data() {
     return {
+      activeName: 'first',
       transferData: [
         {
           title: "今日营业额",
@@ -444,6 +445,28 @@ export default {
           width: 50%;
           text-align: right;
         }
+      }
+    }
+  }
+  .user_info{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-content: center;
+    height: 250px;
+    p{
+      font-size: 14px;
+      width:100%;
+      height: 24px;
+      line-height: 24px;
+      .text_left{
+        text-align: left;
+      }
+      span{
+        display: block;
+        float: left;
+        width: 50%;
+        text-align: right;
       }
     }
   }
