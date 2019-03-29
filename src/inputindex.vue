@@ -2,17 +2,12 @@
 	<div class="index">
 		<el-container>
 			<el-header class="header" style="background-color: #4491f0;">
-				<div class='index_name'>路由后台管理系统</div>
 				<div class="index_leftOperation">
-					<span>当前账户:
-						<b class="name">1232</b>
-					</span>
-					<span >修改密码</span>
-					<span >退出</span>
+					<span @click="isShow = !isShow">写代码一时爽，一直写一直爽。</span>
 				</div>
 			</el-header>
 			<el-container>
-				<el-aside class="menu" style="width: 250px;min-height: 900px">
+				<el-aside v-show="isShow" class="menu" style="width: 250px;min-height: 900px">
 					<el-row class="tac self_menu">
 					
 					</el-row>
@@ -31,8 +26,13 @@
 export default {
   name: "index",
   data() {
-    return {}}
-    }
+		return {
+			isShow:true
+		}
+		},
+		methods: {
+	}
+	}
 </script>	
 
 <style scoped>
