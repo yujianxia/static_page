@@ -72,7 +72,7 @@
           </el-table-column>
           <el-table-column prop="date" label="银行凭证" align="center">
             <template slot-scope="scope">
-              <span class="pointer">查看</span>
+              <span class="pointer" @click="showBank(scope.row)">查看</span>
             </template>
           </el-table-column>
         </el-table>
@@ -285,13 +285,69 @@
     <!-- 银行流水单 -->
     <el-dialog :visible.sync="bankDialogVisible" width="1000px" :title="bankTitle" :modal-append-to-body="false" :lock-scroll="false" center>
       <div class="bank_info">
-        <p>
+        <p style="text-align:left;">
           <span>交易时间：2019-01-01 19:19:19</span>
           <span>网银流水号：2111111111111111111111111</span>
         </p>
         <div>
-          <div></div>
-          <div></div>
+          <div class="border_r width50">
+            <div class="pay_info">
+              <div class="width40 border_r_b">
+                <div class="height120 width50">付款方</div>
+                <div class="width50">
+                  <p>账户户名</p>
+                  <p>付款账户</p>
+                  <p>开户行</p>
+                </div>
+              </div>
+              <div class="width60">
+                <p>账户户名11111111111</p>
+                <p>付款账户11111111</p>
+                <p>开户行11111</p>
+              </div>
+            </div>
+            <div class="pay_info_num border_b">
+              <p class="width40 border_r">转账金额（小写）</p>
+              <p class="width60">合计（小写）</p>
+            </div>
+            <div class="pay_info_num">
+              <p class="width40 border_r">11111元</p>
+              <p class="width60">2222元</p>
+            </div>
+          </div>
+          <div class="width50">
+            <div class="pay_info">
+              <div class="width40 border_r_b">
+                <div class="height120 width50">收款方</div>
+                <div class="width50">
+                  <p>收款方</p>
+                  <p>收款账户</p>
+                  <p>开户行</p>
+                </div>
+              </div>
+              <div class="width60">
+                <p>账户户名11111111111</p>
+                <p>付款账户11111111</p>
+                <p>开户行11111</p>
+              </div>
+            </div>
+            <div class="pay_info_num border_b">
+              <p class="width40 border_r">手续费</p>
+              <p class="width60">合计（大写）</p>
+            </div>
+            <div class="pay_info_num">
+              <p class="width40 border_r">11111元</p>
+              <p class="width60">2222元</p>
+            </div>
+          </div>
+        </div>
+        <div class="bank_info_bottom border_b">
+          <p class="width20">附言</p>
+          <p class="width80">附言附言附言附言附言附言附言附言附言附言附言</p>
+        </div>
+        <div class="bank_info_bottom" style="height:100px;border-top:none;border-bottom:none">
+          <p class="width20">图片</p>
+          <p class="width80">图片图片图片</p>
         </div>
       </div>
     </el-dialog>
@@ -306,7 +362,7 @@ export default {
   },
   data() {
     return {
-      activeName: 'first',
+      activeName: "first",
       transferData: [
         {
           title: "今日营业额",
@@ -340,7 +396,7 @@ export default {
       frameTitle: "订单详情",
       bankTitle: "转账结果 交易成功",
       detailsDialogVisible: false, //详情弹框
-      bankDialogVisible: true, //银行流水单弹框
+      bankDialogVisible: false, //银行流水单弹框
       tableData: [
         {
           date: "2016-05-02"
@@ -363,6 +419,10 @@ export default {
     showDetails(item) {
       console.log("点击详情");
       this.detailsDialogVisible = true;
+    },
+    showBank(item) {
+      console.log("点击查看");
+      this.bankDialogVisible = true;
     },
     // tab切换
     handleClick() {
@@ -397,9 +457,10 @@ export default {
     }
   }
   .bank_info {
-    height: 170px;
+    height: auto;
     width: 100%;
     border: 1px solid #bbb;
+    text-align: center;
     & > p {
       height: 40px;
       line-height: 40px;
@@ -408,16 +469,77 @@ export default {
         display: block;
         float: left;
         width: 50%;
-        padding-left:10px;
-    box-sizing: border-box;
+        padding-left: 10px;
+        box-sizing: border-box;
       }
     }
+    .border_r {
+      border-right: 1px solid #bbb;
+    }
     & > div {
-      height: 120px;
+      height: 200px;
       width: 100%;
-      outline: 1px solid #bbb;
       display: flex;
       justify-content: flex-start;
+      .width50 {
+        width: 50%;
+      }
+      .width40 {
+        width: 40%;
+      }
+      .width60 {
+        width: 60%;
+      }
+      .border_b {
+        border-bottom: 1px solid #bbb;
+      }
+      .border_r_b {
+        border-bottom: 1px solid #bbb;
+        display: flex;
+        justify-content: flex-start;
+        border-right: 1px solid #bbb;
+        .height120 {
+          height: 120px;
+          line-height: 120px;
+          border-right: 1px solid #bbb;
+        }
+      }
+      .pay_info_num {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      .pay_info {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        height: 120px;
+        p {
+          height: 40px;
+          line-height: 40px;
+          box-sizing: border-box;
+          border-bottom: 1px solid #bbb;
+        }
+      }
+    }
+    .bank_info_bottom {
+      box-sizing: border-box;
+      display: flex;
+      border-top: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+      justify-content: flex-start;
+      height: 40px;
+      line-height: 40px;
+      .width20 {
+        box-sizing: border-box;
+        width: 20%;
+        border-right: 1px solid #bbb;
+      }
+      .width80 {
+        width: 80%;
+      }
     }
   }
   .detail_info {
@@ -448,21 +570,21 @@ export default {
       }
     }
   }
-  .user_info{
+  .user_info {
     display: flex;
     justify-content: center;
-    flex-direction:column;
+    flex-direction: column;
     align-content: center;
     height: 250px;
-    p{
+    p {
       font-size: 14px;
-      width:100%;
+      width: 100%;
       height: 24px;
       line-height: 24px;
-      .text_left{
+      .text_left {
         text-align: left;
       }
-      span{
+      span {
         display: block;
         float: left;
         width: 50%;
