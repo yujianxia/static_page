@@ -50,5 +50,8 @@ export default {
 .el-menu-item-group__title {
   font-size: 14px;
 }
+.index_leftOperation{
+	font-size:30px;
+}
 </style>
 

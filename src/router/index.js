@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import aaa from '@/components/aaa'
 import bbb from '@/components/bbb'
+import ccc from '@/components/ccc'
 import inputindex from '@/inputindex'
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
           path: '/bbb',
           name: 'bbb',
           component: bbb
+        },
+        {
+          path: '/ccc',
+          name: 'ccc',
+          component: ccc
         },
       ]
     }
