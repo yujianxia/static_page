@@ -65,12 +65,13 @@
           qwqw
         </el-form-item>
         <el-form-item label="请选择充值商品：">
-          <el-checkbox-group v-model="checkedCities1">
-            <p v-for="(city,index) in cities" :key="index">
-             <el-checkbox :label="city.city">XXX玻尿酸：70元/盒 x <el-input v-model="city.money" style="width:100px" size="medium"></el-input> 盒 =  7000元</el-checkbox>
+            <p v-for="(item,index) in list" :key="index">
+             <el-checkbox v-model="item.checked" :label="item.name">{{item.name}}：{{item.money}}元/盒 x 
+               <el-input v-model="item.num" style="width:100px" size="medium" placeholder="输入数量" @input="calculate(item)"></el-input> 盒 = 
+              {{item.total}}元</el-checkbox>
             </p>
-          </el-checkbox-group>
         </el-form-item>
+        <p style="text-align:right">总计：{{totalPrice}}元</p>
         <p style="text-align:center">提示：预存款将加上9000元</p>
         <p style="text-align:center">库存将加上100盒</p>
         <p style="text-align:center;margin-top:20px">
@@ -119,17 +120,25 @@ export default {
       form:{
         name:"1212"
       },
-      checkedCities1:[], //选中的列表
-      cities:[
+      list:[
         {
-          city:"1",
-          money:123
+          name:"篮球",
+          money:2,
+          num:null,
+          total:0,
+          checked:false,
         }, {
-          city:"2",
-          money:""
+          name:"足球",
+          money:2,
+          num:null,
+          total:0,
+          checked:false,
         }, {
-          city:"3",
-          money:""
+          name:"网球",
+          money:2,
+          num:null,
+          total:0,
+          checked:false,
         }
       ],
       params: {
@@ -137,6 +146,17 @@ export default {
         size: 10
       }
     };
+  },
+  computed: {
+    totalPrice() {
+      let totals = 0;
+      this.list.forEach(ele => {
+        if (ele.checked) {
+          totals += ele.total;
+        }
+      });
+      return totals;
+    }
   },
   methods: {
     // 提交函数
@@ -147,6 +167,14 @@ export default {
     },
     handleCurrentChange(val){
       console.log('params',this.params);
+    },
+    // 单个商品数量输入
+    calculate(item){
+      for (const iterator of this.list) {
+        if (iterator.name == item.name) {
+          iterator.total = item.money * item.num;
+        }
+      }
     }
   }
 };
