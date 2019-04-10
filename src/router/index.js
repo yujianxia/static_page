@@ -4,6 +4,12 @@ import HelloWorld from '@/components/HelloWorld'
 import aaa from '@/components/aaa'
 import bbb from '@/components/bbb'
 import ccc from '@/components/ccc'
+import ddd from '@/components/ddd'
+import eee from '@/components/eee'
+import fff from '@/components/fff'
+import ggg from '@/components/ggg'
+import hhh from '@/components/hhh'
+import iii from '@/components/iii'
 import inputindex from '@/inputindex'
 
 Vue.use(Router)
@@ -25,7 +31,7 @@ export default new Router({
           path: '/aaa',
           name: 'aaa',
           component: aaa
-        }, 
+        },
         {
           path: '/bbb',
           name: 'bbb',
@@ -35,6 +41,32 @@ export default new Router({
           path: '/ccc',
           name: 'ccc',
           component: ccc
+        },
+        {
+          path: '/ddd',
+          name: 'ddd',
+          component: ddd
+        },
+        {
+          path: '/eee',
+          name: 'eee',
+          component: eee
+        }, {
+          path: '/fff',
+          name: 'fff',
+          component: fff
+        }, {
+          path: '/ggg',
+          name: 'ggg',
+          component: ggg
+        },{
+          path: '/hhh',
+          name: 'hhh',
+          component: hhh
+        },{
+          path: '/iii',
+          name: 'iii',
+          component: iii
         },
       ]
     }

@@ -1,10 +1,6 @@
-// 个人预存款充值记录
+// 个人预存款调货
 <template>
-  <div class="wallet-count-page">
-     <p style="margin-bottom:10px">
-       <el-button icon="el-icon-plus" @click="recharge">预存款充值</el-button>
-       <el-button style="float:right" @click="cargo" icon="el-icon-plus">预存款调货</el-button>
-     </p>
+  <div class="person-cargo-count-page">
     <DataModel class="borderLeftNone" :child-data="transferData"></DataModel>
     <!-- 查询 -->
     <div class="search_container">
@@ -17,33 +13,31 @@
       <i @click="search_submit" class="el-icon-search"></i>
     </div>
     <el-table :data="tableData" style="width: 100%" :header-cell-style="{background:'#E4E7ED'}">
-          <el-table-column prop="date" label="充值订单编号" width="180" align="center">
+          <el-table-column prop="date" label="调货编号" width="180" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="充值人姓名" align="center">
+          <el-table-column prop="date" label="调货人姓名" align="center">
           </el-table-column>
           <el-table-column prop="date" label="电话" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="充值金额" align="center">
-          </el-table-column>
           <el-table-column prop="date" label="商品名称" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="充值盒数" align="center">
-          </el-table-column>
-          <el-table-column prop="date" label="交易流水号" align="center">
-          </el-table-column>
-          <el-table-column prop="date" label="支付方式" align="center">
+          <el-table-column prop="date" label="调货数量" align="center">
           </el-table-column>
           <el-table-column prop="date" label="级别" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="推荐人" align="center">
-          </el-table-column>
           <el-table-column prop="date" label="预存款结余" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="库存盒数" align="center">
+          <el-table-column prop="date" label="调货人库存" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="充值状态" align="center">
+          <el-table-column prop="date" label="收货人姓名" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="充值日期" align="center">
+          <el-table-column prop="date" label="收货人电话" align="center">
+          </el-table-column>
+          <el-table-column prop="date" label="收货人库存" align="center">
+          </el-table-column>
+          <el-table-column prop="date" label="调货状态" align="center">
+          </el-table-column>
+          <el-table-column prop="date" label="调货日期" align="center">
           </el-table-column>
         </el-table>
         <!-- 翻页 -->
@@ -54,7 +48,7 @@
 <script>
 import DataModel from "../common/dataModel";
 export default {
-  name: "moneyCount",
+  name: "personCargo",
   components: {
     DataModel
   },
@@ -62,18 +56,15 @@ export default {
     return {
       transferData: [
         {
-          title: "今日充值",
-          value: 111
+          title: "今日调货",
+          value: 111,
+          unit:"笔"
         },
         {
-          title: "本月充值",
-          value: 2222
+          title: "本月调货",
+          value: 2222,
+          unit:"笔"
         },
-        {
-          title: "库存结余",
-          value: 3333,
-          unit:"盒"
-        }
       ],
       searchInfo: "", //查询str
       startMonth: "", //开始月
@@ -103,14 +94,6 @@ export default {
     //根据充值人电话查询信息
     searchPerson(){
       console.log('111111111111111111',);
-    },
-    // 预存款充值
-    recharge(){
-      console.log('预存款充值',);
-    },
-    // 预存款调货
-    cargo(){
-      console.log('预存款调货',);
     }
   }
 };
@@ -120,7 +103,7 @@ export default {
   cursor: pointer;
   color: #3f51b5;
 }
-.wallet-count-page{
+.person-cargo-count-page{
   p {
     margin: 0;
   }
