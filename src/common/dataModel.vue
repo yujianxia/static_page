@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     calculateWdith() {
+      console.log('this.calculateWdith();',);
       this.$nextTick(function() {
         let itemWidth = 100 / this.dataArr.length;
         let divArr = document.getElementById("dataModel").children;
@@ -43,6 +44,18 @@ export default {
           iterator.style.width = itemWidth + "%";
         }
       });
+    }
+  },
+  watch: {
+    childData: {
+      handler(newVal, oldVal) {
+        this.dataArr = newVal;
+        if (newVal.length != oldVal.length) {
+          this.calculateWdith();
+        }
+      },
+      // immediate:true,
+      deep: true
     }
   }
 };
