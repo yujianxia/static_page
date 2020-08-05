@@ -11,6 +11,7 @@ import ggg from '@/components/ggg'
 import hhh from '@/components/hhh'
 import iii from '@/components/iii'
 import inputindex from '@/inputindex'
+import dashboard from '@/components/dashboard_yu.vue'
 
 Vue.use(Router)
 
@@ -67,7 +68,12 @@ export default new Router({
           path: '/iii',
           name: 'iii',
           component: iii
+        },{
+          path: '/dashboard',
+          name: 'dashboard',
+          component: dashboard
         },
+        
       ]
     }
   ]

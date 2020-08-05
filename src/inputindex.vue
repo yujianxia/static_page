@@ -1,22 +1,21 @@
 <template>
 	<div class="index">
 		<el-container>
-			<el-header class="header" style="background-color: #4491f0;">
+			<!-- <el-header class="header" style="background-color: #4491f0;">
 				<div class="index_leftOperation">
 					<span @click="isShow = !isShow">写代码一时爽，一直写一直爽。</span>
 				</div>
 			</el-header>
 			<el-container>
-				<el-aside v-show="isShow" class="menu" style="width: 250px;min-height: 900px">
+				<el-aside v-show="isShow" class="menu" style="width: 250px">
 					<el-row class="tac self_menu">
 					
 					</el-row>
 				</el-aside>
 
-				<el-main>
-
+				<el-main> -->
 					<router-view></router-view>
-				</el-main>
+				<!-- </el-main> -->
 			</el-container>
 		</el-container>
 	</div>
@@ -41,7 +40,7 @@ export default {
 
 <style>
 .el-aside {
-  height: min-height(100vh - 60px);
+  height: calc(100vh - 60px);
   height: -webkit-calc(100vh - 60px);
   height: -moz-calc(100vh - 60px);
   height: -o-calc(100vh - 60px);
@@ -51,7 +50,7 @@ export default {
   font-size: 14px;
 }
 .index_leftOperation{
-	font-size:30px;
+	font-size:18px;
 }
 </style>
 
