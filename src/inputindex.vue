@@ -1,7 +1,7 @@
 <template>
 	<div class="index">
 		<el-container>
-			<!-- <el-header class="header" style="background-color: #4491f0;">
+			<el-header class="header" style="background-color: #4491f0;">
 				<div class="index_leftOperation">
 					<span @click="isShow = !isShow">写代码一时爽，一直写一直爽。</span>
 				</div>
@@ -13,9 +13,9 @@
 					</el-row>
 				</el-aside>
 
-				<el-main> -->
+				<el-main>
 					<router-view></router-view>
-				<!-- </el-main> -->
+				</el-main>
 			</el-container>
 		</el-container>
 	</div>

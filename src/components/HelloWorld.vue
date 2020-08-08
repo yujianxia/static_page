@@ -438,7 +438,7 @@ export default {
 <style lang="scss">
 .pointer {
   cursor: pointer;
-  color: #3f51b5;
+  // color: #3f51b5;
 }
 .money-count-page {
   p {
